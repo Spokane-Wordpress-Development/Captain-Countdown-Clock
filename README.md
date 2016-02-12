@@ -2,7 +2,7 @@
 
 Add the following shortcode to your page:
 
-`[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!"]`
+`[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" format="usa"]`
 
 Most date formats will work:
 
