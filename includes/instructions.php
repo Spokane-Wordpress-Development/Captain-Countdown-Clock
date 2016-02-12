@@ -87,7 +87,7 @@ $title =  __( 'Countdown To My Special Day!', 'captain-countdown' );
 
 	<p>
 		<strong>
-			<?php _e( 'Background text color (default is black)', 'captain-countdown' ); ?>:
+			<?php _e( 'Change the text color (default is black)', 'captain-countdown' ); ?>:
 		</strong>
 	</p>
 
@@ -99,7 +99,7 @@ $title =  __( 'Countdown To My Special Day!', 'captain-countdown' );
 
 	<p>
 		<strong>
-			<?php _e( 'Background border color (default is gray)', 'captain-countdown' ); ?>:
+			<?php _e( 'Change the border color (default is gray)', 'captain-countdown' ); ?>:
 		</strong>
 	</p>
 

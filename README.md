@@ -23,11 +23,11 @@ Change the background color (default is white):
 
 `[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" background="#FF0000"]`
 
-Background text color (default is black):
+Change the text color (default is black):
 
 `[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" text="#FFFFFF"]`
 
-Background border color (default is gray):
+Change the border color (default is gray):
 
 `[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" border="#000000"]`
 
