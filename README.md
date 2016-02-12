@@ -11,7 +11,13 @@ Most date formats will work:
 - 2016-02-13
 - 2/13/16
 
-Date is always required. Time is optional.
+If you specify "usa" for the format, your date will look like this:
+
+>February 12, 2016 
+
+Leave the format attribute blank (or remove it completely) for the default date display:
+
+>12 February 2016 
 
 ## Other Shortcode Options
 
@@ -19,7 +25,7 @@ Turn off seconds:
 
 `[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" seconds="off"]`
 
-Change the background color (default is white):
+Change the background color (default is none):
 
 `[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" background="#FF0000"]`
 
@@ -27,7 +33,7 @@ Change the text color (default is black):
 
 `[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" text="#FFFFFF"]`
 
-Change the border color (default is gray):
+Change the border color (default is none):
 
 `[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" border="#000000"]`
 
