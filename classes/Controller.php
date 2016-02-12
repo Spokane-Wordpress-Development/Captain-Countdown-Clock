@@ -11,7 +11,15 @@ class Controller {
 
 	const OPTION_VERSION = 'captain_countdown_version';
 
+	const OFFSET_YEARS = 0;
+	const OFFSET_DAYS = 1;
+	const OFFSET_HOURS = 2;
+	const OFFSET_MINUTES = 3;
+	const OFFSET_SECONDS = 4;
+	const OFFSET_OVER_UNDER = 5;
+
 	public $attributes;
+	public $months;
 
 	/**
 	 *
@@ -26,16 +34,39 @@ class Controller {
 	 */
 	public function init()
 	{
+		$this->months = array(
+			1 => __( 'January', 'captain-countdown' ),
+			2 => __( 'February', 'captain-countdown' ),
+			3 => __( 'March', 'captain-countdown' ),
+			4 => __( 'April', 'captain-countdown' ),
+			5 => __( 'May', 'captain-countdown' ),
+			6 => __( 'June', 'captain-countdown' ),
+			7 => __( 'July', 'captain-countdown' ),
+			8 => __( 'August', 'captain-countdown' ),
+			9 => __( 'September', 'captain-countdown' ),
+			10 => __( 'October', 'captain-countdown' ),
+			11 => __( 'November', 'captain-countdown' ),
+			12 => __( 'December', 'captain-countdown' ),
+		);
+
 		wp_enqueue_script( 'captain-countdown-js', plugin_dir_url( dirname( __FILE__ ) ) . 'js/captain-countdown.js', array( 'jquery' ), (WP_DEBUG) ? time() : self::VERSION_JS, TRUE );
+		wp_enqueue_script( 'captain-countdown-moment-js', plugin_dir_url( dirname( __FILE__ ) ) . 'js/moment.min.js', array(), (WP_DEBUG) ? time() : self::VERSION_JS, TRUE );
 		wp_enqueue_style( 'captain-countdown-css', plugin_dir_url( dirname( __FILE__ ) ) . 'css/captain-countdown.css', array(), (WP_DEBUG) ? time() : self::VERSION_CSS );
 	}
 
 	/**
-	 *
+	 * @param array $attributes
 	 */
-	public function short_code()
+	public function short_code( $attributes )
 	{
-
+		$this->attributes = shortcode_atts( array(
+			'datetime' => date( 'n/j/Y g:i a', time() + 60*60*24*365 ),
+			'title' => '',
+			'seconds' => 'on',
+			'background' => '',
+			'text' => '#000000',
+			'border' => ''
+		), $attributes );
 	}
 
 	/**
@@ -70,5 +101,81 @@ class Controller {
 	public function print_instructions_page()
 	{
 		include( dirname( __DIR__ ) . '/includes/instructions.php' );
+	}
+
+	public function register_settings()
+	{
+		register_setting( 'captain_countdown_settings', 'captain_countdown_offset' );
+	}
+
+	/**
+	 * @return array
+	 */
+	public function get_offsets()
+	{
+		$offset = get_option( 'captain_countdown_offset' );
+		$default_offsets = array(
+			self::OFFSET_YEARS => 0,
+			self::OFFSET_DAYS => 0,
+			self::OFFSET_HOURS => 0,
+			self::OFFSET_MINUTES => 0,
+			self::OFFSET_SECONDS => 0,
+			self::OFFSET_OVER_UNDER => 'over');
+
+		if ( ! empty( $offset ) )
+		{
+			$offsets = explode( '|', $offset );
+			if ( count( $offsets ) == 5 )
+			{
+				foreach ( $offsets as $index => $offset )
+				{
+					$default_offsets[ $index ] = ( ! is_numeric( $offset ) ) ? 0 : $offset;
+
+					if ( $offset < 0 )
+					{
+						$default_offsets[ self::OFFSET_OVER_UNDER ] = 'under';
+					}
+				}
+			}
+		}
+
+		return $default_offsets;
+	}
+
+	/**
+	 * @param $date
+	 *
+	 * @return bool|string
+	 */
+	public function get_my_date( $date )
+	{
+		$offsets = $this->get_offsets();
+		$date = ( is_numeric( $date ) ) ? $date : strtotime( $date );
+		foreach ( $offsets as $index => $offset )
+		{
+			if ( $offset != 0 )
+			{
+				switch ($index)
+				{
+					case self::OFFSET_YEARS:
+						$date = strtotime( date( 'Y-m-d H:i:s', $date ) . ' - ' . $offset . ' years' );
+						break;
+					case self::OFFSET_DAYS:
+						$date = strtotime( date( 'Y-m-d H:i:s', $date ) . ' - ' . $offset . ' days' );
+						break;
+					case self::OFFSET_HOURS:
+						$date = strtotime( date( 'Y-m-d H:i:s', $date ) . ' - ' . $offset . ' hours' );
+						break;
+					case self::OFFSET_MINUTES:
+						$date = strtotime( date( 'Y-m-d H:i:s', $date ) . ' - ' . $offset . ' minutes' );
+						break;
+					case self::OFFSET_SECONDS: /* second */
+						$date = strtotime( date( 'Y-m-d H:i:s', $date ) . ' - ' . $offset . ' seconds' );
+						break;
+				}
+			}
+		}
+
+		return date( 'Y-m-d H:i:s', $date );
 	}
 }

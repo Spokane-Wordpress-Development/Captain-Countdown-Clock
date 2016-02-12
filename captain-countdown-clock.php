@@ -46,6 +46,9 @@ add_shortcode ( 'captain_countdown', array( $controller, 'short_code' ) );
 /* admin stuff */
 if (is_admin() )
 {
+	/* register settings */
+	add_action( 'admin_init', array( $controller, 'register_settings' ) );
+
 	/* add the instructions page link */
 	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $controller, 'instructions_link' ) );
 

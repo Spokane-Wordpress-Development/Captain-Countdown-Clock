@@ -17,6 +17,10 @@ $colors = array(
 
 $title =  __( 'Countdown To My Special Day!', 'captain-countdown' );
 
+$offsets = $this->get_offsets();
+$gm_date = gmdate( 'Y-m-d H:i:s' );
+$my_date = $this->get_my_date( $gm_date );
+
 ?>
 
 <div class='wrap'>
@@ -27,13 +31,122 @@ $title =  __( 'Countdown To My Special Day!', 'captain-countdown' );
 
 	<p>
 		<strong>
+			<?php _e( 'First, let\'s make sure your website shows the time you want it to show', 'captain-countdown' ); ?>:
+		</strong>
+	</p>
+
+	<form id="captain-countdown-settings-form" method="post" action="options.php" autocomplete="off">
+		<?php
+
+		settings_fields( 'captain_countdown_settings' );
+		do_settings_sections( 'captain_countdown_settings' );
+
+		?>
+		<input id="captain-countdown-offset" type="hidden" value="" name="captain_countdown_offset">
+	</form>
+
+	<div class="captain-countdown-code">
+		<form autocomplete="off">
+			<table class="table">
+				<tr>
+					<th>
+						<?php _e( 'Current time on your website/server', 'captain-countdown' ); ?>
+					</th>
+					<td>
+						<div
+							class="captain-countdown-timer"
+							data-direction="up"
+							data-datetime="<?php echo $gm_date; ?>"></div>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<?php _e( 'Make adjustments as needed', 'captain-countdown' ); ?>
+					</th>
+					<td>
+						<?php _e( 'The website/server date/time is', 'captain-countdown' ); ?>
+						<select id="captain_countdown_over_under">
+							<option value="over"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_OVER_UNDER ] != 'under' ) { ?> selected<?php } ?>>
+								<?php _e( 'Over', 'captain-countdown' ); ?>
+							</option>
+							<option value="under"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_OVER_UNDER ] == 'under' ) { ?> selected<?php } ?>>
+								<?php _e( 'Under', 'captain-countdown' ); ?>
+							</option>
+						</select>
+						<br>
+						<?php _e( 'by', 'captain-countdown' ); ?>
+						<select id="captain_countdown_years">
+							<?php for ($x=0; $x<=100; $x++) { ?>
+								<option value="<?php echo $x; ?>"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_YEARS ] == $x ) { ?> selected<?php } ?>>
+									<?php echo $x; ?>
+									<?php _e( 'yr(s)', 'captain-countdown' ); ?>
+								</option>
+							<?php } ?>
+						</select>
+						<select id="captain_countdown_days">
+							<?php for ($x=0; $x<=364; $x++) { ?>
+								<option value="<?php echo $x; ?>"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_DAYS ] == $x ) { ?> selected<?php } ?>>
+									<?php echo $x; ?>
+									<?php _e( 'day(s)', 'captain-countdown' ); ?>
+								</option>
+							<?php } ?>
+						</select>
+						<select id="captain_countdown_hours">
+							<?php for ($x=0; $x<=23; $x++) { ?>
+								<option value="<?php echo $x; ?>"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_HOURS ] == $x ) { ?> selected<?php } ?>>
+									<?php echo $x; ?>
+									<?php _e( 'hr(s)', 'captain-countdown' ); ?>
+								</option>
+							<?php } ?>
+						</select>
+						<select id="captain_countdown_minutes">
+							<?php for ($x=0; $x<=59; $x++) { ?>
+								<option value="<?php echo $x; ?>"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_MINUTES ] == $x ) { ?> selected<?php } ?>>
+									<?php echo $x; ?>
+									<?php _e( 'min(s)', 'captain-countdown' ); ?>
+								</option>
+							<?php } ?>
+						</select>
+						<select id="captain_countdown_seconds">
+							<?php for ($x=0; $x<=59; $x++) { ?>
+								<option value="<?php echo $x; ?>"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_SECONDS ] == $x ) { ?> selected<?php } ?>>
+									<?php echo $x; ?>
+									<?php _e( 'sec(s)', 'captain-countdown' ); ?>
+								</option>
+							<?php } ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+						<input name="submit" id="captain-countdown-settings-submit" class="button button-primary" value="<?php _e( 'Save Adjustments', 'captain-countdown' ); ?>" type="submit">
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<?php _e( 'Time that will be shown to your visitors', 'captain-countdown' ); ?>
+					</th>
+					<td>
+						<div
+							class="captain-countdown-timer"
+							data-direction="up"
+							data-datetime="<?php echo $my_date; ?>"></div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+
+	<p>
+		<strong>
 			<?php _e( 'Add the following shortcode to your page', 'captain-countdown' ); ?>:
 		</strong>
 	</p>
 
 	<p class="captain-countdown-code">
 
-		[captain_countdown datetime="<?php echo date( $formats[0], time() + 60*60*24 ); ?>" title="<?php echo $title; ?>"]
+		[captain_countdown datetime="<?php echo date( $formats[0], time() + 60*60*24 ); ?>" title="<?php echo $title; ?>" format="usa"]
 
 	</p>
 
@@ -43,19 +156,31 @@ $title =  __( 'Countdown To My Special Day!', 'captain-countdown' );
 		</strong>
 	</p>
 
-	<ul>
+	<blockquote>
 		<?php foreach ( $formats as $format ) { ?>
-			<li>
-				<?php echo date( $format, time() + 60*60*24 ); ?>
-			</li>
+			&raquo;
+			<?php echo date( $format, time() + 60*60*24 ); ?>
+			<br>
 		<?php } ?>
-	</ul>
+	</blockquote>
 
 	<p>
 		<strong>
-			<?php _e( 'Date is always required. Time is optional.', 'captain-countdown' ); ?>
+			<?php _e( 'If you specify "usa" for the format, your date will look like this', 'captain-countdown' ); ?>:
 		</strong>
 	</p>
+	<blockquote>
+		<?php echo $this->months[ date('n') ] . ' ' . date( 'j, Y' ); ?>
+	</blockquote>
+
+	<p>
+		<strong>
+			<?php _e( 'Leave the format attribute blank (or remove it completely) for the default date display', 'captain-countdown' ); ?>:
+		</strong>
+	</p>
+	<blockquote>
+		<?php echo date( 'j' ) . ' ' .$this->months[ date('n') ] . ' ' . date( 'Y' ); ?>
+	</blockquote>
 
 	<h3>
 		<?php _e( 'Other Shortcode Options', 'captain-countdown' ); ?>
@@ -75,7 +200,7 @@ $title =  __( 'Countdown To My Special Day!', 'captain-countdown' );
 
 	<p>
 		<strong>
-			<?php _e( 'Change the background color (default is white)', 'captain-countdown' ); ?>:
+			<?php _e( 'Change the background color (default is none)', 'captain-countdown' ); ?>:
 		</strong>
 	</p>
 
@@ -99,7 +224,7 @@ $title =  __( 'Countdown To My Special Day!', 'captain-countdown' );
 
 	<p>
 		<strong>
-			<?php _e( 'Change the border color (default is gray)', 'captain-countdown' ); ?>:
+			<?php _e( 'Change the border color (default is none)', 'captain-countdown' ); ?>:
 		</strong>
 	</p>
 
@@ -115,21 +240,22 @@ $title =  __( 'Countdown To My Special Day!', 'captain-countdown' );
 		</strong>
 	</p>
 
-	<ul>
+	<blockquote>
 		<?php foreach ( $colors as $hex => $name ) { ?>
-			<li>
-				<?php _e( 'Use', 'captain-countdown' ); ?>
-				"<?php echo $hex; ?>"
-				<?php _e( 'or', 'captain-countdown' ); ?>
-				"<?php echo $name; ?>"
-				<?php _e( 'for', 'captain-countdown' ); ?>
-				<?php _e( $name, 'captain-countdown' ); ?>
-			</li>
+			&raquo;
+			<?php _e( 'Use', 'captain-countdown' ); ?>
+			"<?php echo $hex; ?>"
+			<?php _e( 'or', 'captain-countdown' ); ?>
+			"<?php echo $name; ?>"
+			<?php _e( 'for', 'captain-countdown' ); ?>
+			<?php _e( $name, 'captain-countdown' ); ?>
+			<br>
 		<?php } ?>
-		<li>
-			<a href="http://www.w3schools.com/colors/colors_hex.asp" target="_blank"><?php _e( 'Click here', 'captain-countdown' ); ?></a>
-			<?php _e( 'for more color options.', 'captain-countdown' ); ?>
-		</li>
-	</ul>
+	</blockquote>
+
+	<p>
+		<a href="http://www.w3schools.com/colors/colors_hex.asp" target="_blank"><?php _e( 'Click here', 'captain-countdown' ); ?></a>
+		<?php _e( 'for more color options.', 'captain-countdown' ); ?>
+	</p>
 
 </div>

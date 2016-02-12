@@ -1,5 +1,7 @@
 # Captain Countdown Clock Instructions
 
+### Before adding the shortcode, visit the Plugin Instructions page to sync the countdown clock with your local time or to correct any time discrepancies your server may have.
+
 Add the following shortcode to your page:
 
 `[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" format="usa"]`
