@@ -4,14 +4,21 @@
 
 Add the following shortcode to your page:
 
-`[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" format="usa"]`
+`[captain_countdown date="2/13/2016" time="5:00 pm" title="Countdown To My Special Day!" format="usa"]`
 
-Most date formats will work:
+Most date and time formats will work:
 
-- 2/13/2016 18:23
-- February 13, 2016 6:23 pm
+Dates
+- 2/13/2016
+- February 13, 201
 - 2016-02-13
-- 2/13/16
+
+Times
+- 5:00 pm
+- 17:00:30
+- 17:30
+
+*Note:* The "date" option is required and the "time" option is optional. 
 
 If you specify "usa" for the format, your date will look like this:
 
@@ -25,19 +32,19 @@ Leave the format attribute blank (or remove it completely) for the default date 
 
 Turn off seconds:
 
-`[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" seconds="off"]`
+`[captain_countdown date="2/13/2016" time="5:00 pm" title="Countdown To My Special Day!" seconds="off"]`
 
 Change the background color (default is none):
 
-`[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" background="#FF0000"]`
+`[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" background="#FF0000"]`
 
 Change the text color (default is black):
 
-`[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" text="#FFFFFF"]`
+`[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" text="#FFFFFF"]`
 
 Change the border color (default is none):
 
-`[captain_countdown datetime="2/13/2016 18:23" title="Countdown To My Special Day!" border="#000000"]`
+`[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" border="#000000"]`
 
 You can use common color names instead of hex values as well:
 

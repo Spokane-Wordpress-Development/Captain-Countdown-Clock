@@ -1,10 +1,16 @@
 <?php
 
-$formats = array(
-	'n/j/Y H:i',
-	'F j, Y g:i a',
-	'Y-m-d',
-	'n/j/y'
+$format_types = array(
+	__( 'Dates', 'captain-countdown' ) => array(
+		'n/j/Y',
+		'F j, Y',
+		'Y-m-d'
+	),
+	__( 'Times', 'captain-countdown' ) => array(
+		'g:i a',
+		'H:i:s',
+		'H:i'
+	)
 );
 
 $colors = array(
@@ -67,10 +73,10 @@ $my_date = $this->get_my_date( $gm_date );
 						<?php _e( 'The website/server date/time is', 'captain-countdown' ); ?>
 						<select id="captain_countdown_over_under">
 							<option value="over"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_OVER_UNDER ] != 'under' ) { ?> selected<?php } ?>>
-								<?php _e( 'Over', 'captain-countdown' ); ?>
+								<?php _e( 'Ahead', 'captain-countdown' ); ?>
 							</option>
 							<option value="under"<?php if ( $offsets[ \CaptainCountdown\Controller::OFFSET_OVER_UNDER ] == 'under' ) { ?> selected<?php } ?>>
-								<?php _e( 'Under', 'captain-countdown' ); ?>
+								<?php _e( 'Behind', 'captain-countdown' ); ?>
 							</option>
 						</select>
 						<br>
@@ -146,23 +152,37 @@ $my_date = $this->get_my_date( $gm_date );
 
 	<p class="captain-countdown-code">
 
-		[captain_countdown datetime="<?php echo date( $formats[0], time() + 60*60*24 ); ?>" title="<?php echo $title; ?>" format="usa"]
+		[captain_countdown date="<?php echo date( $format_types[ __( 'Dates', 'captain-countdown' ) ][0], time() ); ?>" time="5:00 pm" title="<?php echo $title; ?>" format="usa"]
 
 	</p>
 
 	<p>
 		<strong>
-			<?php _e( 'Most date formats will work', 'captain-countdown' ); ?>:
+			<?php _e( 'Most date and time formats will work', 'captain-countdown' ); ?>:
 		</strong>
 	</p>
 
 	<blockquote>
-		<?php foreach ( $formats as $format ) { ?>
-			&raquo;
-			<?php echo date( $format, time() + 60*60*24 ); ?>
-			<br>
+		<?php foreach ( $format_types as $type => $formats ) { ?>
+			<strong>
+				<?php echo $type; ?>
+			</strong>
+			<blockquote>
+				<?php foreach ($formats as $format) { ?>
+					<li>
+						<?php echo date( $format, strtotime( date( 'Y-m-d' ) . ' 17:00:00' ) ); ?>
+					</li>
+				<?php } ?>
+			</blockquote>
 		<?php } ?>
 	</blockquote>
+
+	<p>
+		<strong>
+			<?php _e( 'Note', 'captain-countdown' ); ?>:
+		</strong>
+		<?php _e( 'The "date" option is required and the "time" option is optional.', 'captain-countdown' ); ?>
+	</p>
 
 	<p>
 		<strong>
@@ -194,7 +214,7 @@ $my_date = $this->get_my_date( $gm_date );
 
 	<p class="captain-countdown-code">
 
-		[captain_countdown datetime="<?php echo date( $formats[0], time() + 60*60*24 ); ?>" title="<?php echo $title; ?>" seconds="off"]
+		[captain_countdown date="<?php echo date( $format_types[ __( 'Dates', 'captain-countdown' ) ][0], time() ); ?>" time="5:00 pm" title="<?php echo $title; ?>" seconds="off"]
 
 	</p>
 
@@ -206,7 +226,7 @@ $my_date = $this->get_my_date( $gm_date );
 
 	<p class="captain-countdown-code">
 
-		[captain_countdown datetime="<?php echo date( $formats[0], time() + 60*60*24 ); ?>" title="<?php echo $title; ?>" background="#FF0000"]
+		[captain_countdown date="<?php echo date( $format_types[ __( 'Dates', 'captain-countdown' ) ][0], time() ); ?>" title="<?php echo $title; ?>" background="#FF0000"]
 
 	</p>
 
@@ -218,7 +238,7 @@ $my_date = $this->get_my_date( $gm_date );
 
 	<p class="captain-countdown-code">
 
-		[captain_countdown datetime="<?php echo date( $formats[0], time() + 60*60*24 ); ?>" title="<?php echo $title; ?>" text="#FFFFFF"]
+		[captain_countdown date="<?php echo date( $format_types[ __( 'Dates', 'captain-countdown' ) ][0], time() ); ?>" title="<?php echo $title; ?>" text="#FFFFFF"]
 
 	</p>
 
@@ -230,7 +250,7 @@ $my_date = $this->get_my_date( $gm_date );
 
 	<p class="captain-countdown-code">
 
-		[captain_countdown datetime="<?php echo date( $formats[0], time() + 60*60*24 ); ?>" title="<?php echo $title; ?>" border="#000000"]
+		[captain_countdown date="<?php echo date( $format_types[ __( 'Dates', 'captain-countdown' ) ][0], time() ); ?>" title="<?php echo $title; ?>" border="#000000"]
 
 	</p>
 

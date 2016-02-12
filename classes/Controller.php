@@ -60,8 +60,10 @@ class Controller {
 	public function short_code( $attributes )
 	{
 		$this->attributes = shortcode_atts( array(
-			'datetime' => date( 'n/j/Y g:i a', time() + 60*60*24*365 ),
+			'date' => date( 'n/j/Y', strtotime( date('n/j/Y') . ' + 1 year' ) ),
+			'time' => '',
 			'title' => '',
+			'format' => '',
 			'seconds' => 'on',
 			'background' => '',
 			'text' => '#000000',
