@@ -30,9 +30,11 @@ Leave the format attribute blank (or remove it completely) for the default date 
 
 ## Other Shortcode Options
 
-Change the background color (default is none):
+Change the background color or image (default is none):
 
 `[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" background="#FF0000"]`
+
+`[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" background="http://mysite.com/path/to/background.png"]`
 
 Change the text color (default is black):
 

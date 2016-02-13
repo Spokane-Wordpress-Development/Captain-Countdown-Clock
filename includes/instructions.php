@@ -208,13 +208,19 @@ $my_date = $this->get_my_date( $gm_date );
 
 	<p>
 		<strong>
-			<?php _e( 'Change the background color (default is none)', 'captain-countdown' ); ?>:
+			<?php _e( 'Change the background color or image (default is none)', 'captain-countdown' ); ?>:
 		</strong>
 	</p>
 
 	<p class="captain-countdown-code">
 
 		[captain_countdown date="<?php echo date( $format_types[ __( 'Dates', 'captain-countdown' ) ][0], time() ); ?>" title="<?php echo $title; ?>" background="#FF0000"]
+
+	</p>
+
+	<p class="captain-countdown-code">
+
+		[captain_countdown date="<?php echo date( $format_types[ __( 'Dates', 'captain-countdown' ) ][0], time() ); ?>" title="<?php echo $title; ?>" background="http://mysite.com/path/to/background.png"]
 
 	</p>
 

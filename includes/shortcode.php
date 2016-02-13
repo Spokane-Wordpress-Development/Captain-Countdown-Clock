@@ -5,7 +5,14 @@ $div_styles = array();
 
 if ( strlen( $this->get_attribute( 'background' ) ) > 0 )
 {
-	$container_styles[] = 'background:' . $this->get_attribute( 'background' );
+	if ( substr( $this->get_attribute( 'background' ), 0, 1 ) == '/' || substr( $this->get_attribute( 'background' ), 0, 4 ) == 'http' )
+	{
+		$container_styles[] = 'background:url(' . $this->get_attribute( 'background' ) . ')';
+	}
+	else
+	{
+		$container_styles[] = 'background:' . $this->get_attribute( 'background' );
+	}
 }
 if ( strlen( $this->get_attribute( 'text' ) ) > 0 )
 {
