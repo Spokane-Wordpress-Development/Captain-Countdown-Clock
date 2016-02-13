@@ -55,7 +55,9 @@ class Controller {
 	}
 
 	/**
-	 * @param array $attributes
+	 * @param $attributes
+	 *
+	 * @return string
 	 */
 	public function short_code( $attributes )
 	{
@@ -69,7 +71,11 @@ class Controller {
 			'border' => ''
 		), $attributes );
 
+		ob_start();
 		include( dirname( __DIR__ ) . '/includes/shortcode.php');
+		$output = ob_get_contents();
+		ob_end_clean();
+		return $output;
 	}
 
 	/**
