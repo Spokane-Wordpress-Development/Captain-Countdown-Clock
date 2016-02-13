@@ -30,10 +30,6 @@ Leave the format attribute blank (or remove it completely) for the default date 
 
 ## Other Shortcode Options
 
-Turn off seconds:
-
-`[captain_countdown date="2/13/2016" time="5:00 pm" title="Countdown To My Special Day!" seconds="off"]`
-
 Change the background color (default is none):
 
 `[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" background="#FF0000"]`

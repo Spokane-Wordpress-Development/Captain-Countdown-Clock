@@ -5,3 +5,39 @@
     padding: 10px;
     background: #FFF;
 }
+
+.captain-countdown-container {
+    display: block;
+    margin: 5px;
+    max-width: 200px;
+    background: none;
+    border: none;
+    color: #000;
+    text-align: center;
+    border-radius: 5px;
+    text-shadow: #000 1px 1px 1px
+}
+
+.captain-countdown-container > div {
+    padding: 5px;
+}
+
+.captain-countdown-title {
+    font-weight: bold;
+    background: url(../images/opacity.png);
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+.captain-countdown-counter {
+    color: #000;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.captain-countdown-date {
+    font-weight: normal;
+    font-size: smaller;
+}

@@ -208,18 +208,6 @@ $my_date = $this->get_my_date( $gm_date );
 
 	<p>
 		<strong>
-			<?php _e( 'Turn off seconds', 'captain-countdown' ); ?>:
-		</strong>
-	</p>
-
-	<p class="captain-countdown-code">
-
-		[captain_countdown date="<?php echo date( $format_types[ __( 'Dates', 'captain-countdown' ) ][0], time() ); ?>" time="5:00 pm" title="<?php echo $title; ?>" seconds="off"]
-
-	</p>
-
-	<p>
-		<strong>
 			<?php _e( 'Change the background color (default is none)', 'captain-countdown' ); ?>:
 		</strong>
 	</p>

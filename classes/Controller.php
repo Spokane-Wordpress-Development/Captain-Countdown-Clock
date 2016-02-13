@@ -64,11 +64,27 @@ class Controller {
 			'time' => '',
 			'title' => '',
 			'format' => '',
-			'seconds' => 'on',
 			'background' => '',
 			'text' => '#000000',
 			'border' => ''
 		), $attributes );
+
+		include( dirname( __DIR__ ) . '/includes/shortcode.php');
+	}
+
+	/**
+	 * @param $attribute
+	 *
+	 * @return string
+	 */
+	public function get_attribute( $attribute )
+	{
+		if ( is_array( $this->attributes ) && array_key_exists( $attribute, $this->attributes ) )
+		{
+			return $this->attributes[ $attribute ];
+		}
+
+		return '';
 	}
 
 	/**
@@ -145,12 +161,13 @@ class Controller {
 	}
 
 	/**
-	 * @param $date
+	 * @param null $date
 	 *
 	 * @return bool|string
 	 */
-	public function get_my_date( $date )
+	public function get_my_date( $date=NULL )
 	{
+		$date = ( $date === NULL ) ? gmdate( 'Y-m-d H:i:s' ) : $date;
 		$offsets = $this->get_offsets();
 		$date = ( is_numeric( $date ) ) ? $date : strtotime( $date );
 		foreach ( $offsets as $index => $offset )
@@ -179,5 +196,36 @@ class Controller {
 		}
 
 		return date( 'Y-m-d H:i:s', $date );
+	}
+
+	/**
+	 * @param $seconds
+	 *
+	 * @return array
+	 */
+	public function get_date_parts( $seconds )
+	{
+		$parts = array(
+			'years' => intval( $seconds / ( 60*60*24*365 ) ),
+			'days' => 0,
+			'hours' => 0,
+			'minutes' => 0,
+			'seconds' => 0
+		);
+
+		$seconds -= ( $parts['years'] * ( 60*60*24*365 ) );
+
+		$parts['days'] = intval( $seconds / ( 60*60*24 ) );
+		$seconds -= ( $parts['days'] * ( 60*60*24 ) );
+
+		$parts['hours'] = intval( $seconds / ( 60*60 ) );
+		$seconds -= ( $parts['hours'] * ( 60*60 ) );
+
+		$parts['minutes'] = intval( $seconds / ( 60 ) );
+		$seconds -= ( $parts['minutes'] * ( 60 ) );
+
+		$parts['seconds'] = $seconds;
+
+		return $parts;
 	}
 }
