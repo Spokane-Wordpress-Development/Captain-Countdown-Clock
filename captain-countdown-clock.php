@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Captain Countdown Clock
  * Plugin URI:
- * Description: Simple Countdown Clock
+ * Description: A simple and customizable WordPress countdown clock. Includes settings to sync your website's time to your time zone, even if they are off by an odd number of minutes.
  * Author: Tony DeStefano
  * Author URI: https://www.facebook.com/TonyDeStefanoWeb
  * Version: 1.0.0

@@ -1,6 +1,10 @@
-# Captain Countdown Clock Instructions
+# Captain Countdown Clock
+
+### A simple and customizable WordPress countdown clock. Includes settings to sync your website's time to your time zone, even if they are off by an odd number of minutes. 
 
 ### Before adding the shortcode, visit the Plugin Instructions page to sync the countdown clock with your local time or to correct any time discrepancies your server may have.
+
+# Instructions
 
 Add the following shortcode to your page:
 
