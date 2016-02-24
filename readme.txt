@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/SpokaneTony
 Tags: countdown clock, clock, timer
 Requires at least: 3.0.1
 Tested up to: 4.4.2
-Stable tag: 1.0.0
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ Before adding the shortcode, visit the Plugin Instructions page to sync the coun
 
 Add the following shortcode to your page:
 
-`[captain_countdown date="2/13/2016" time="5:00 pm" title="Countdown To My Special Day!" format="usa"]`
+> [captain_countdown date="2/13/2016" time="5:00 pm" title="Countdown To My Special Day!" format="usa"]
 
 Most date and time formats will work:
 
@@ -50,17 +50,17 @@ Leave the format attribute blank (or remove it completely) for the default date 
 
 Change the background color or image (default is none):
 
-`[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" background="#FF0000"]`
+> [captain_countdown date="2/13/2016" title="Countdown To My Special Day!" background="#FF0000"]`
 
-`[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" background="http://mysite.com/path/to/background.png"]`
+> [captain_countdown date="2/13/2016" title="Countdown To My Special Day!" background="http://mysite.com/path/to/background.png"]`
 
 Change the text color (default is black):
 
-`[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" text="#FFFFFF"]`
+> [captain_countdown date="2/13/2016" title="Countdown To My Special Day!" text="#FFFFFF"]`
 
 Change the border color (default is none):
 
-`[captain_countdown date="2/13/2016" title="Countdown To My Special Day!" border="#000000"]`
+> [captain_countdown date="2/13/2016" title="Countdown To My Special Day!" border="#000000"]`
 
 You can use common color names instead of hex values as well:
 
@@ -76,7 +76,7 @@ You can use common color names instead of hex values as well:
 
 = There are a dozen countdown clock plugins out there. Why should I use yours? =
 
-I cannot answer your question at this time.
+Because you like simple things, like we do.
 
 == Upgrade Notice ==
 

@@ -4,12 +4,12 @@
  * Plugin Name: Captain Countdown Clock
  * Plugin URI:
  * Description: A simple and customizable WordPress countdown clock. Includes settings to sync your website's time to your time zone, even if they are off by an odd number of minutes.
- * Author: Tony DeStefano
- * Author URI: https://www.facebook.com/TonyDeStefanoWeb
+ * Author: Spokane WordPress Development
+ * Author URI: http://www.spokanewp.com
  * Version: 1.0.0
  * Text Domain: captain-countdown
  *
- * Copyright 2016 Tony DeStefano
+ * Copyright 2016 Spokane WordPress Development
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as
@@ -26,7 +26,7 @@
  *
  * @package CaptainCountdown
  * @author Tony DeStefano
- * @version 1.0.0
+ * @version 1.0.3
  */
 
 require_once ( 'classes/Controller.php' );
