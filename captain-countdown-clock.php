@@ -6,7 +6,7 @@
  * Description: A simple and customizable WordPress countdown clock. Includes settings to sync your website's time to your time zone, even if they are off by an odd number of minutes.
  * Author: Spokane WordPress Development
  * Author URI: http://www.spokanewp.com
- * Version: 1.0.0
+ * Version: 1.0.4
  * Text Domain: captain-countdown
  *
  * Copyright 2016 Spokane WordPress Development
@@ -26,7 +26,7 @@
  *
  * @package CaptainCountdown
  * @author Tony DeStefano
- * @version 1.0.3
+ * @version 1.0.4
  */
 
 require_once ( 'classes/Controller.php' );
