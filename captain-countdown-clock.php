@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name: Captain Countdown Clock
- * Plugin URI:
+ * Plugin URI: http://www.thetimenow.com/javascript/clock
  * Description: A simple and customizable WordPress countdown clock. Includes settings to sync your website's time to your time zone, even if they are off by an odd number of minutes.
- * Author: Spokane WordPress Development
- * Author URI: http://www.spokanewp.com
- * Version: 1.0.4
+ * Author: The Time Now
+ * Author URI: http://www.thetimenow.com
+ * Version: 1.0.5
  * Text Domain: captain-countdown
  *
  * Copyright 2016 Spokane WordPress Development
@@ -25,8 +25,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  *
  * @package CaptainCountdown
- * @author Tony DeStefano
- * @version 1.0.4
+ * @author The Time Now
+ * @version 1.0.5
  */
 
 require_once ( 'classes/Controller.php' );

@@ -44,6 +44,9 @@ $date_parts = $this->get_date_parts( $difference );
 		</div>
 	<?php } ?>
 	<div class="captain-countdown-counter" style="<?php echo implode( ';', $div_styles ); ?>">
+		<div class="timerSupport">
+			If captain countdown clock is not working please visit <a href="http://www.thetimenow.com/javascript/clock" target="_blank">TheTimeNow Javascript Clocks</a> for support.
+		</div>
 		<div
 			class="captain-countdown-timer"
 			data-direction="down"

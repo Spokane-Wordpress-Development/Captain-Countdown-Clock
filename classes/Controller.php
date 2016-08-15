@@ -5,9 +5,9 @@ namespace CaptainCountdown;
 
 class Controller {
 
-	const VERSION = '1.0.4';
-	const VERSION_JS = '1.0.0';
-	const VERSION_CSS = '1.0.4';
+	const VERSION = '1.0.5';
+	const VERSION_JS = '1.0.1';
+	const VERSION_CSS = '1.0.5';
 
 	const OPTION_VERSION = 'captain_countdown_version';
 

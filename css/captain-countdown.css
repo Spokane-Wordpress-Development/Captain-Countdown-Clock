@@ -16,12 +16,7 @@
     color: #000;
     text-align: center;
     border-radius: 5px;
-    -webkit-text-stroke: 1px black;
-    text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
+    text-shadow: 2px 2px 2px #000;
 }
 
 .captain-countdown-container > div {
@@ -29,7 +24,6 @@
 }
 
 .captain-countdown-title {
-    font-weight: bold;
     background: url(../assets/opacity.png);
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
@@ -39,10 +33,18 @@
 .captain-countdown-counter {
     color: #000;
     font-family: "Courier New", Courier, monospace;
-    font-weight: bold;
     font-size: 20px;
 }
 
 .captain-countdown-date {
     font-weight: bold;
+}
+
+.captain-countdown-counter .timerSupport {
+    font-size: 12px;
+    color: #000;
+    background: #FFF;
+    text-shadow: none;
+    border-radius: 5px;
+    padding: 5px;
 }

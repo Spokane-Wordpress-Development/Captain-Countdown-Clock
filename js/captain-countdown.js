@@ -1,6 +1,5 @@
 (function($){
 
-
     $(function(){
 
         $('.captain-countdown-timer').each(function(){
@@ -31,6 +30,10 @@
 })(jQuery);
 
 function captainCountdownTimer(element, increment){
+
+    jQuery('.timerSupport').each(function(){
+        jQuery(this).css('display', 'none');
+    });
 
     var datetime = element.data('datetime');
     var direction = element.data('direction');

@@ -1,10 +1,9 @@
 === Captain Countdown Clock ===
-Contributors: spokanetony
-Donate link: https://www.paypal.me/SpokaneTony
+Contributors: spokanetony, recipesff
 Tags: countdown clock, clock, timer
 Requires at least: 3.0.1
-Tested up to: 4.5.1
-Stable tag: 1.0.4
+Tested up to: 4.5.3
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,10 +83,16 @@ This is a first release.
 
 == Screenshots ==
 
-1. /assets/screenshot-1.png
-2. /assets/screenshot-2.png
+1. Screenshot 1
+2. Screenshot 2
 
 == Changelog ==
 
 = 1.0.0 =
 * I made this.
+
+= 1.0.1 - 1.0.4 =
+* Cosmetic changes.
+
+= 1.0.5 =
+* Added a support link in case the javascript fails.
