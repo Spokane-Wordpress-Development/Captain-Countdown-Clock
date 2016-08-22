@@ -6,7 +6,7 @@
  * Description: A simple and customizable WordPress countdown clock. Includes settings to sync your website's time to your time zone, even if they are off by an odd number of minutes.
  * Author: The Time Now
  * Author URI: http://www.thetimenow.com
- * Version: 1.0.5
+ * Version: 1.0.6
  * Text Domain: captain-countdown
  *
  * Copyright 2016 Spokane WordPress Development

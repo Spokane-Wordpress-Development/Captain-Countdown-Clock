@@ -3,7 +3,7 @@ Contributors: spokanetony, recipesff
 Tags: countdown clock, clock, timer
 Requires at least: 3.0.1
 Tested up to: 4.5.3
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,3 +96,6 @@ This is a first release.
 
 = 1.0.5 =
 * Added a support link in case the javascript fails.
+
+= 1.0.6 =
+* Added a nofollow tag to the support link
